@@ -1,6 +1,10 @@
   create-issue-on-failure:
 
     needs: test-run
+    
+    permissions:
+      issues: write
+    
     if: always() && failure() 
     uses: ./.github/workflows/create-failure-issue.yml 
     with:
